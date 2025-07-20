@@ -8,7 +8,7 @@
 
 # Table of Contents
 ## 1. [What is Nexus.ai?](#what-is-nexusai)
-## 2. [Operational Mode](#-operational-note-demonstration-only-mode)
+## 2. [Operational Mode](#-operational-note-demonstration-only)
 ## 3. [Features](#-features)
 ## 4. [Getting Started](#getting-started)
 ## 5. [Architecture](#-architecture)
@@ -116,9 +116,56 @@ python Nexus_FlaskApp.py
 
 5. ## Architecture
 Diagram:
+ Below is a high-level architecture of Nexus.ai showing secrets loading, connector orchestration, scraping, core engine, and the API layer.
                              
-   <img width="1024" height="1536" alt="ChatGPT Image Jul 20, 2025, 02_01_38 AM" src="https://github.com/user-attachments/assets/bc333f15-e15a-44a0-9c3c-09fa6ee69fc1" />
+   <img width="850" height="900" alt="ChatGPT Image Jul 20, 2025, 02_01_38 AM" src="https://github.com/user-attachments/assets/bc333f15-e15a-44a0-9c3c-09fa6ee69fc1" />
 
+
+
+
+**Nexus is engineered with three principles at its core: Safety, Scalability, and Security.**
+
+To meet those goals, Nexus is fully cloud-native and deploys seamlessly across the AWS ecosystem using battle-tested compute, storage, and security infrastructure. Whether you’re an individual developer or a global enterprise, Nexus adapts to scale and that's by design.
+
+## Security-First Architecture
+
+* **AES-256 Encryption** protects all prompts, responses, and logs — both in transit and at rest.
+* **IAM & KMS** enforce fine-grained access control and automatic key rotation.
+* **CloudWatch & CloudTrail** provide real-time monitoring, alerting, and forensic auditing 24/7/365.
+* **VPC (Virtual Private Cloud)** ensures all resources are isolated, routed securely, and protected by network-level firewalls.
+
+This architecture makes Nexus compliant with modern zero-trust and least-privilege security standards from day one.
+
+
+## Durable & Scalable Storage
+
+* **Amazon RDS + Aurora** handle structured data and analytical workloads with high availability.
+* **Amazon DynamoDB** powers low-latency access for audit logs, user scopes, and API activity.
+* **Amazon S3** serves as the primary hot storage layer for backups, logs, and archive-ready data.
+* **Amazon Glacier** retains cold backups for up to 1 year, ensuring long-term recoverability.
+
+## Nexus performs automated snapshots and tiered storage rollovers, ensuring your data is never lost — even in extreme scenarios.
+
+## Elastic Compute & Parallel Processing
+
+* Amazon EC2 serves as the Nexus backend host — a hardened, flexible compute instance tailored to your scale.
+* AWS Parallel Computing Service(PCS) and ECS with Fargate can be integrated to scale AI model processing horizontally when running with heavy model throughput.
+
+This ensures Nexus is both **low-cost in idle mode** and **high-performance under load**.
+
+---
+
+### Why This Matters
+
+This infrastructure means:
+
+* Nexus can handle **one user or one million** — with no architectural changes.
+* Nexus is resilient to failures, attacks, or outages — thanks to **redundancy and logging at every layer**.
+* Nexus is **infinitely customizable**, without compromising on security.
+
+---
+
+Let me know if you want this automatically embedded in your README or split into a formal `SECURITY.md` or `INFRASTRUCTURE.md`. I can format that instantly.
 
 
 

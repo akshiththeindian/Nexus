@@ -116,26 +116,8 @@ python Nexus_FlaskApp.py
 
 5. ## Architecture
 Diagram:
-                                ┌──────────────────────────────┐
-                                │   Nexus_API_secrets.py       │
-                                │ (Secrets + Connector Factory)│
-                                └────────────┬─────────────────┘
-                                             │
-                                ┌────────────▼────────────┐
-                                │ Nexus_load_model_conn...│ ← CLI scripts, tests
-                                └────────────┬────────────┘
-                                             │
- ┌─────────────────────┐        ┌────────────▼────────────┐         ┌─────────────────────┐
- │   Web Scrapers      │──────▶│     Nexus_engine.py      │◀──────▶│ Response Aggregator
-        S3,Lambda                                                      Model Connector
-        AWS                                                            Model Response     │
- └─────────────────────┘        │ (Query + Aggregate Core)│         └─────────────────────┘
-                                └────────────┬────────────┘
-                                             │
-                                ┌────────────▼────────────┐
-                                │    Nexus_FlaskApp.py    │
-                                │  (API, Admin, Logging)  │
-                                └─────────────────────────┘
+                             
+   <img width="1024" height="1536" alt="ChatGPT Image Jul 20, 2025, 02_01_38 AM" src="https://github.com/user-attachments/assets/bc333f15-e15a-44a0-9c3c-09fa6ee69fc1" />
 
 
 

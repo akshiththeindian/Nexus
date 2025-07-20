@@ -81,7 +81,7 @@ Aggregates using TF-IDF, consensus scoring, and weighted preferences.
 Compatible with AWS S3, Lambda, and DynamoDB for logs, backups, and scalability. Nexus is built with scalability in mind and to that degree can be made to be infinitely scalable using AWS. Nexus uses S3, EC2, Glacier, RDS, DynamoDB, Aurora, Athena and other AWS Services to ensure this is a viable product to the absolute highest standards.
 
 - User Access Controls + Audit Logging:   
-Nexus was built on the idea that logging and keeping records. Nexus has Built-in key validation, scope enforcement, and audit trails with TTL retention.
+Nexus was built on the idea that comprehensive logging and auditing are essential for transparency and security. Nexus has Built-in key validation, scope enforcement, and audit trails with TTL retention.
 
 - Webhook & Admin Extensibility: 
 Lightweight admin tools and event-driven webhook support.
@@ -94,18 +94,18 @@ No API calls until secrets are injected. All logic tested, dry-run friendly.
 4. # Getting Started:
 # 1. Clone repository
 git clone https://github.com/akshiththeindian/nexus.git
-cd nexus-ai
+cd nexus
+
 
 # 2. Install dependencies
 In the requirements.txt file,
 pip install -r requirements.txt
 
 
-# 3a. Setup environment
+# 3. Setup environment
+cp .env.example .env
+# Then open `.env` and insert your real API keys (or leave blank for demo mode)
 
-cp .env.example .env 
-
-# 3b. Then edit `.env` to add your real API keys
 
 # 4. Edit .env to add your API keys 
 

@@ -3,7 +3,7 @@
 ![Status](https://img.shields.io/badge/status-Demonstrator-yellow)
 
 
-# Nexus.ai - Multi-Model AI Aggregation Engine
+# Nexus.ai — Secure AI Aggregation Engine with Web-Contextual Intelligence and Encrypted Delivery
 
 
 # Table of Contents
@@ -34,7 +34,7 @@ Nexus.ai is not just a tool for AI enthusiasts; it is a powerful platform that c
 Nexus.ai is an advanced AI engine that aggregates and analyzes responses from multiple AI models and traditional search engines and media, providing a comprehensive and nuanced understanding of user queries. It also includes powerful 256-bit AES encryption for secure data handling, ensuring that 
 Sensitive information is protected throughout the process.
 
-It combines the power of multiple AI models with the richness of web data, enabling users to gain deeper insights and make more informed decisions. Using AI Model Debating, you will get the best possible answer to your question, by combining the strengths of different AI models and traditional 
+It combines the power of multiple AI models with the richness of web data, enabling users to gain deeper insights and make more informed decisions. Using AI Model Debating, you will get the best possible answer to your question by combining the strengths of different AI models and traditional 
 search engines and media.
 
 

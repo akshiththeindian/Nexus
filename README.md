@@ -8,7 +8,7 @@
 
 # Table of Contents
 ## 1. [What is Nexus.ai?](#what-is-nexusai)
-## 2. [Operational Mode](#-operational-note-demonstration-only)
+## 2. [Secrets and Security Architecture](#secretsandsecurityarchitecture)
 ## 3. [Features](#-features)
 ## 4. [Getting Started](#getting-started)
 ## 5. [Architecture](#-architecture)
@@ -29,38 +29,51 @@ It integrates web scraping capabilities for real-time data retrieval, supports s
 
 Nexus.ai is built to be extensible and infinitely scalable, allowing for easy integration of new AI models and data sources, making it a versatile tool for developers and researchers alike, but it is also designed to be user-friendly, with a focus on providing clear and actionable insights.
 
-Nexus.ai is not just a tool for AI enthusiasts; it is a powerful platform that can be used in various applications, from academic research to business intelligence, and it aims to democratize access to advanced AI capabilities by making Gen AI replies more accurate and more correct. 
+Nexus.ai is not just a tool for AI enthusiasts; it is a powerful platform that can be used in various applications, from academic research to business intelligence, and it aims to democratize access to advanced AI capabilities by making Gen AI replies more accurate and correct. 
 
 Nexus.ai is an advanced AI engine that aggregates and analyzes responses from multiple AI models and traditional search engines and media, providing a comprehensive and nuanced understanding of user queries. It also includes powerful 256-bit AES encryption for secure data handling, ensuring that 
-sensitive information is protected throughout the process.
+Sensitive information is protected throughout the process.
 
-It combines the power of multiple AI models with the richness of web data, enabling users to gain deeper insights and make more informed decisions, using AI Model Debating you will get the best possible answer to your question, by combining the strengths of different AI models and traditional 
+It combines the power of multiple AI models with the richness of web data, enabling users to gain deeper insights and make more informed decisions. Using AI Model Debating, you will get the best possible answer to your question, by combining the strengths of different AI models and traditional 
 search engines and media.
 
 
 
-2. # ⚠️ Operational Note: Demonstration-Only
+2. # Secrets & Security Architecture
 
-This project is a secure **proof-of-concept** designed to demonstrate:
-- Modular orchestration of external AI APIs
-- Full stack encryption and key rotation logic
-- Logging, security, and AWS-based archival infrastructure
-- Response aggregation algorithms
+**⚠️ Operational Notice:** This is a secure demonstration file, not a production secrets manager.
 
-## Warning: No live API keys are included. No external models are called.  
-All orchestration logic is functional but locked under safety mode. Please do not run in production without adding your own keys and do not alter logic.
+All credentials in this project are pulled securely from environment variables or AWS Secrets Manager. The system supports:
 
-This approach ensures:
-- Credential security
-- Cost control
-- Safety for demonstration and portfolio use
+* **AES-256 encryption with daily key rotation**
+* **Optional AWS KMS hybrid encryption**
+* **No hardcoded secrets or live credentials**
 
-To “arm” the system, a future user would:
-- Plug in valid API keys via secure vault or environment file
-- Enable the active dispatch logic in `engine.py` and `api_secrets.py`
-- Deploy to a secure environment with network access
-This design prioritizes security and safety while showcasing the system's 
-capabilities. 
+All secret handling, API orchestration, and runtime logic is sandboxed. External model calls are **disabled by default** to ensure safety and cost control.
+
+# Why This Matters
+
+This architecture was designed as a **secure proof-of-concept** for:
+
+* 🔐 Demonstrating credential encryption & secret rotation
+* 🛡️ Showcasing secure-by-default development practices
+* 💸 Enabling zero-risk local or portfolio deployments
+
+It ensures a no-cost, secure, and auditable environment—ideal for infrastructure, cloud, and AI demonstrations.
+
+# How to Activate the System
+
+To "arm" this secrets framework in a real deployment, simply:
+
+1. Add valid API keys to a secure vault or `.env` file
+2. Enable dispatch logic in `engine.py` and `api_secrets.py`
+3. Deploy within a private networked environment (e.g., AWS VPC, Lambda, ECS)
+
+This design reflects **real-world production readiness** without exposing live systems, enabling:
+
+* Full-stack cloud security demonstration
+* End-to-end logging, audit trail, and encryption showcase
+* Confidence in deployment safety for hiring or technical review
 
 
 3. # Features
@@ -72,13 +85,13 @@ Connects with GPT-4o, Claude, Gemini, Perplexity, and any future model via plugg
 Enriches context using live search results from Google, Bing, or DuckDuckGo. 
 
 - Secure Aggregation with AES-256: 
-Nexus is built with safety and security in mind. We use 256 bit encryption to encrypt and decrypt all responses and to make sure that there is no data leakage. All prompts and results are encrypted using advanced symmetric encryption.
+Nexus is built with safety and security in mind. We use 256-bit encryption to encrypt and decrypt all responses, ensuring that there is no data leakage. All prompts and results are encrypted using advanced symmetric encryption.
 
 - Response Ranking Algorithms:   
 Aggregates using TF-IDF, consensus scoring, and weighted preferences.
 
 - Cloud-Native Deployment Ready:   
-Compatible with AWS S3, Lambda, and DynamoDB for logs, backups, and scalability. Nexus is built with scalability in mind and to that degree can be made to be infinitely scalable using AWS. Nexus uses S3, EC2, Glacier, RDS, DynamoDB, Aurora, Athena and other AWS Services to ensure this is a viable product to the absolute highest standards.
+Compatible with AWS S3, Lambda, and DynamoDB for logs, backups, and scalability. Nexus is built with scalability in mind, and to that degree, it can be made infinitely scalable using AWS. Nexus uses S3, EC2, Glacier, RDS, DynamoDB, Aurora, Athena, and other AWS Services to ensure this is a viable product to the absolute highest standards.
 
 - User Access Controls + Audit Logging:   
 Nexus was built on the idea that comprehensive logging and auditing are essential for transparency and security. Nexus has Built-in key validation, scope enforcement, and audit trails with TTL retention.
@@ -163,12 +176,6 @@ This infrastructure means:
 * Nexus is resilient to failures, attacks, or outages — thanks to **redundancy and logging at every layer**.
 * Nexus is **infinitely customizable**, without compromising on security.
 
----
-
-Let me know if you want this automatically embedded in your README or split into a formal `SECURITY.md` or `INFRASTRUCTURE.md`. I can format that instantly.
-
-
-
 
 6. # Security Design
 
@@ -192,8 +199,7 @@ Nexus.ai is built with zero-trust principles and multi-layered protection:
 
 
 
-
-## ✅ Run Tests (Coming Soon)
+# ✅ Run Tests (Coming Soon)
 This repo includes stubs for future pytest-based testing:
 
 ```bash
